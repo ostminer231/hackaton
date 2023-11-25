@@ -20,27 +20,7 @@ class Profile extends StatefulWidget {
 class _Profile extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Profile Page',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Профиль',
-            style: TextStyle(
-              color: primaryColor,
-            ),
-          ),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: primaryColor,),
-            onPressed: () {},
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.white,
-        ),
-        body: NavigationBarApp(),
-      ),
-    );
+    return NavigationBarApp();
   }
 }
 
@@ -202,6 +182,9 @@ class Page_2 extends StatelessWidget {
     return ListView(
 
       children: [
+        SizedBox(
+          height: 40,
+        ),
         CompanyTile(
           icon: 'assets/images/HomePage/arpicon.png', // Путь к вашему локальному файлу иконки в формате PNG
           title: 'Arpicon',
@@ -258,7 +241,10 @@ class CompanyTile extends StatelessWidget {
         ), // Использование Image.asset для PNG/JPG иконок
         title: Text(title),
         trailing: IconButton(
-          icon: const Icon(Icons.arrow_forward),
+          icon: const Icon(
+            IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+            color: Color(0xff0560FA),
+          ),
           onPressed: onTap,
         ),
       ),
@@ -285,16 +271,49 @@ class NavigationExample extends StatefulWidget {
 class _NavigationExampleState extends State<NavigationExample> {
   int currentPageIndex = 0;
 
+  String getTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Главное';
+      case 1:
+        return 'Услуги';
+      case 2:
+        return 'Вакансии';
+      case 3:
+        return 'Профиль';
+      default:
+        return 'Страница';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
-      Page_1(), // Экран Explore
-      Page_2(), // Экран Commute
-      Center(child: Text('Saved Screen')),   // Экран Saved
-      Center(child: Text('Saved Screen')),   // Экран Saved
+      const Page_2(), // Экран Главное
+      const Center(child: Text('Saved Screen')), // Экран Saved
+      const Center(child: Text('Saved Screen')),
+      const Page_1(), // Экран Профиль
     ];
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          getTitle(currentPageIndex), // Здесь вызываем функцию для установки заголовка
+          style: const TextStyle(
+            color: primaryColor,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: primaryColor),
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
         onDestinationSelected: (int index) {
@@ -327,5 +346,6 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 }
+
 
 

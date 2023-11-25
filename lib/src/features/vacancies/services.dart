@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hackaton/src/features/auth/profile/profile.dart';
 
 import 'package:hackaton/src/constants/colors.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Remove debug banner
       home: ServicesPage(),
+
     );
   }
 }
