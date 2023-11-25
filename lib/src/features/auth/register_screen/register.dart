@@ -249,9 +249,12 @@ class _Register extends State<Register> {
       ),
     );
   }
+
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       print('Name: ${_fullName.text}');
+
+      Navigator.pushNamed(context, '/profile');
     }
   }
 
