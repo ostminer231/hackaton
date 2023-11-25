@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../constants/colors.dart';
+import 'dart:convert';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -81,7 +82,6 @@ class _Register extends State<Register> {
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(50)
                     ],
-                    validator: fullNameValidate,
                   ),
                   const SizedBox(
                     height: 30,
@@ -233,18 +233,33 @@ class _Register extends State<Register> {
     );
   }
 
-  void _submitForm() {
-      Navigator.pushNamed(context, '/pin');
-  }
+  void _submitForm() async {
+    var url = Uri.parse("http://patefa05.beget.tech/register");
 
-  String? fullNameValidate(value) {
-    final _fullNameExp = RegExp(r'^[a-zA-Z]+(?: [a-zA-Z]+)?$');
-    if (value.isEmpty) {
-      return 'Name is required';
-    } else if(!_fullNameExp.hasMatch(value)) {
-      return 'Please enter full name';
-    } else {
-      return null;
+    try {
+      var response = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: json.encode({
+          'full_name': _fullName.text,
+          'phone_number': _phoneNumber.text,
+          'email': _emailAddress.text,
+          'password': _userPassword.text,
+        }),
+      );
+
+      if (response.statusCode == 201) {
+        // Обработка успешного ответа
+        print("Запрос успешно отправлен");
+        print("Ответ сервера: ${response.body}");
+        Navigator.pushNamed(context, '/pin');
+      } else {
+        // Обработка ошибки
+        print("Ошибка при отправке запроса: ${response.statusCode}");
+      }
+    } catch (e) {
+      // Обработка исключения при запросе
+      print("Исключение при отправке запроса: ${e.toString()}");
     }
   }
 }
