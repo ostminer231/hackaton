@@ -18,7 +18,7 @@ class IntroPage2 extends StatelessWidget {
             height: 50,
           ),
           Text(
-            'Flexible Payment',
+            'Карьера Вверх!',
             style: GoogleFonts.roboto(
               color: primaryColor,
               fontWeight: FontWeight.bold,

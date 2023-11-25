@@ -17,7 +17,7 @@ class IntroPage1 extends StatelessWidget {
             height: 50,
           ),
           Text(
-              'Easy Tracking',
+              'Лифты Вверх!',
             style: GoogleFonts.roboto(
               color: primaryColor,
               fontWeight: FontWeight.bold,

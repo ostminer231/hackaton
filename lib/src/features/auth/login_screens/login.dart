@@ -38,12 +38,12 @@ class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Align(
-        alignment: Alignment.bottomCenter,
-        child: Form(
-          key: _formKey,
-          child: Container(
-            margin: const EdgeInsets.only(top: 200),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 150.0, left: 20.0, right: 20.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Form(
+            key: _formKey,
             child: Stack(
               children: [
                 Column(
@@ -55,7 +55,6 @@ class _Login extends State<Login> {
                         textStyle: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 24,
-
                         ),
                       ),
                     ),
@@ -134,7 +133,7 @@ class _Login extends State<Login> {
                               ),
                               Expanded(
                                 child: Wrap(
-                                  alignment: WrapAlignment.center,
+                                  alignment: WrapAlignment.start,
                                   children: [
                                     Text(
                                       'Запомнить пароль',
@@ -155,8 +154,8 @@ class _Login extends State<Login> {
                           ElevatedButton(
                             onPressed: _submitForm,
                             style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(342, 46),
-                              backgroundColor: primaryColor // Replace with your primary color
+                                fixedSize: const Size(342, 46),
+                                backgroundColor: primaryColor // Replace with your primary color
                             ),
                             child: Text(
                               'Войти',
@@ -184,8 +183,10 @@ class _Login extends State<Login> {
                                 child: Text(
                                   'Зарегистрироваться',
                                   style: GoogleFonts.roboto(
-                                      color: primaryColor, // Replace with your primary color
-                                      fontWeight: FontWeight.w600),
+                                    color: primaryColor,
+                                    // Replace with your primary color
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ],

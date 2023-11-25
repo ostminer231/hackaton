@@ -17,7 +17,7 @@ class IntroPage3 extends StatelessWidget {
             height: 50,
           ),
           Text(
-              'Real-time Tracking',
+              'Лифтовые вакансии',
             style: GoogleFonts.roboto(
               color: primaryColor,
               fontWeight: FontWeight.bold,
