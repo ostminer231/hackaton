@@ -47,12 +47,15 @@ class _PINPageState extends State<PIN_page> {
             TextField(
               controller: pinController,
               decoration: InputDecoration(
-                labelText: 'Введите PIN-код',
+                labelText: 'Введите ПИН-код',
+                labelStyle: TextStyle(
+                  fontSize: 20, // Установка размера шрифта для метки
+                ),
               ),
               keyboardType: TextInputType.number,
               inputFormatters: [
                 FilteringTextInputFormatter.digitsOnly,
-                LengthLimitingTextInputFormatter(4), // Ограничение длины до 4 цифр
+                LengthLimitingTextInputFormatter(4),
               ],
             ),
             SizedBox(height: 25.0),
@@ -108,7 +111,7 @@ class ConfirmPINPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Подтвердите ваш PIN-код',
+              'Подтвердите ваш ПИН-код',
               style: TextStyle(fontSize: 20.0),
               textAlign: TextAlign.center,
             ),
@@ -116,16 +119,22 @@ class ConfirmPINPage extends StatelessWidget {
             TextField(
               controller: pinController,
               decoration: InputDecoration(
-                labelText: 'PIN-код',
+                labelText: 'ПИН-код',
+                labelStyle: TextStyle(
+                  fontSize: 20, // Установка размера шрифта для метки
+                ),
               ),
               keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(4),
+              ],
             ),
             SizedBox(height: 25.0),
             ElevatedButton(
               onPressed: () {
                 if (pinController.text == pin) {
-                  // Показать сообщение об успехе
+                  // Показать диалоговое окно с подтверждением
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -134,7 +143,10 @@ class ConfirmPINPage extends StatelessWidget {
                         actions: [
                           TextButton(
                             child: Text('ОК'),
-                            onPressed: () => Navigator.of(context).pop(),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Закрыть диалоговое окно
+                              Navigator.pushNamed(context, '/profile'); // Переход на страницу профиля
+                            },
                           ),
                         ],
                       );
