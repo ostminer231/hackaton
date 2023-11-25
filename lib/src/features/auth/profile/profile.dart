@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 import 'package:hackaton/src/constants/colors.dart';
 
 void main() => runApp(const Profile());
@@ -193,6 +194,78 @@ class _UserTitles extends State<UserTitles> {
   }
 }
 
+class Page_2 extends StatelessWidget {
+  const Page_2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+
+      children: [
+        CompanyTile(
+          icon: 'assets/images/HomePage/arpicon.png', // Путь к вашему локальному файлу иконки в формате PNG
+          title: 'Arpicon',
+          onTap: () {
+            // Обработка нажатия
+          },
+        ),
+        CompanyTile(
+          icon: 'assets/images/HomePage/shipyard.png',
+          title: 'ЩЕРБИНСКИЙ ЛИФТОСТРОИТЕЛЬНЫЙ ЗАВОД',
+          onTap: () {
+            // Обработка нажатия
+          },
+        ),
+        CompanyTile(
+          icon: 'assets/images/HomePage/avialift.png',
+          title: 'Avialift',
+          onTap: () {
+            // Обработка нажатия
+          },
+        ),
+        CompanyTile(
+          icon: 'assets/images/HomePage/eonessi.png',
+          title: 'Eonessi',
+          onTap: () {
+            // Обработка нажатия
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class CompanyTile extends StatelessWidget {
+  final String icon;
+  final String title;
+  final VoidCallback onTap;
+
+  const CompanyTile({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Image.asset(
+            icon,
+            width: 50,
+            height: 50,
+        ), // Использование Image.asset для PNG/JPG иконок
+        title: Text(title),
+        trailing: IconButton(
+          icon: const Icon(Icons.arrow_forward),
+          onPressed: onTap,
+        ),
+      ),
+    );
+  }
+}
+
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
 
@@ -216,7 +289,7 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       Page_1(), // Экран Explore
-      Center(child: Text('Commute Screen')), // Экран Commute
+      Page_2(), // Экран Commute
       Center(child: Text('Saved Screen')),   // Экран Saved
       Center(child: Text('Saved Screen')),   // Экран Saved
     ];
