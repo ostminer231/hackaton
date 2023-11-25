@@ -1,38 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class TestButtons extends StatelessWidget {
   const TestButtons({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  // Функции, которые будут вызываться при нажатии на кнопки
-  void function1() {
-
-  }
-
-  void function2() {
-
-  }
-
-  void function3() {
-
-  }
-
-  // Виджет для создания кнопки с текстом и функцией
-  Widget buildButton(String buttonText, Function() onPressed) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(buttonText),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +10,35 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            buildButton("Регистрация", function1),
-            SizedBox(height: 20),
-            buildButton("Вход", function2),
-            SizedBox(height: 20),
-            buildButton("Профиль", function3),
-            // Добавьте дополнительные кнопки, если нужно
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/session_2/register');
+              },
+              child: Text('Регистрация'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/login_page');
+              },
+              child: Text('Логин'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Text('Профиль'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/services');
+              },
+              child: Text('Сервисы'),
+            ),
+            // Продолжайте добавлять кнопки по аналогии
           ],
         ),
       ),
     );
   }
+
 }
