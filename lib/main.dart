@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         '/session_2/register': (context) => const Register(),
         //'/profile': (context) => const Profile(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
-        '/login_page': (context) => const Login()
+        '/login_pag': (context) => const Login()
       },
     );
   }
