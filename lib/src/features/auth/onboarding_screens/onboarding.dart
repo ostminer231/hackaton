@@ -52,7 +52,7 @@ class _OnBoarding extends State<OnBoarding> {
                           backgroundColor: primaryColor,
                           fixedSize: const Size(346, 50)),
                       child: Text(
-                        'Sign Up',
+                        'Зарегистрироваться',
                         style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
@@ -63,12 +63,12 @@ class _OnBoarding extends State<OnBoarding> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Already have an account? ',
+                        Text('У вас уже есть аккаунт? ',
                             style: GoogleFonts.roboto(
                               color: grayColorDark,
                               fontSize: 14,
                             )),
-                        Text('Sign in',
+                        Text('Войти',
                             style: GoogleFonts.roboto(
                               color: primaryColor,
                               fontSize: 14,
@@ -117,7 +117,7 @@ class _OnBoarding extends State<OnBoarding> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),
-                      child: const Text('Next'),
+                      child: const Text('Следующая'),
                     )
                   ],
                 ),
