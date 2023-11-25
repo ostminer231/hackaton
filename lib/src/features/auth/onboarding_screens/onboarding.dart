@@ -46,7 +46,7 @@ class _OnBoarding extends State<OnBoarding> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/session_2/register');
+                        Navigator.pushNamed(context, '/role_page');
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,

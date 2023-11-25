@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({Key? key}) : super(key: key);
+
+  @override
+  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
+}
+
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+  late TextEditingController _emailController;
+  late bool _isValidEmail;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _isValidEmail = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,16 +41,26 @@ class ForgotPasswordPage extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             TextField(
+              controller: _emailController,
+              onChanged: (value) {
+                setState(() {
+                  _isValidEmail = isValidEmail(value);
+                });
+              },
               decoration: InputDecoration(
                 labelText: 'Электронная почта',
                 hintText: 'example@example.com',
+                errorText: _isValidEmail ? null : 'Введите валидный email',
               ),
             ),
             SizedBox(height: 20.0),
             ElevatedButton(
-              onPressed: () {
-                // Добавьте здесь логику для отправки одноразового пароля
-              },
+              onPressed: _isValidEmail
+                  ? () {
+                // Логика для отправки одноразового пароля
+                print('Логика для отправки одноразового пароля');
+              }
+                  : null,
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFF0560FA),
               ),
@@ -65,5 +91,9 @@ class ForgotPasswordPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool isValidEmail(String email) {
+    return email.contains('@') && email.contains('.');
   }
 }
