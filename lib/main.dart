@@ -11,6 +11,7 @@ import 'src/features/auth/login_screens/login.dart';
 import 'src/features/auth/register_screen/OTP_Verification.dart';
 import 'src/features/test.dart';
 import 'src/features/auth/profile/profile.dart';
+import 'src/features/auth/register_screen/pin.dart';
 
 
 void main() => runApp(const MyApp());
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/TEST': (context) => const TestButtons(),
         '/profile': (context) => const Profile(),
         '/services': (context) => const ServicesPage(),
+        '/pin': (context) => const PIN_page(),
       },
     );
   }
