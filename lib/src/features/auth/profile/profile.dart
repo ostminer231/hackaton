@@ -200,6 +200,7 @@ class Page_2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+
       children: [
         CompanyTile(
           icon: 'assets/images/HomePage/arpicon.png', // Путь к вашему локальному файлу иконки в формате PNG
