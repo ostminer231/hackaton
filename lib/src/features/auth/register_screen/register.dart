@@ -250,7 +250,7 @@ class _Register extends State<Register> {
 
       if (response.statusCode == 201) {
         // Обработка успешного ответа
-        print("Запрос успешно отправлен");
+        print("Запрос  успешно отправлен");
         print("Ответ сервера: ${response.body}");
         Navigator.pushNamed(context, '/pin');
       } else {
