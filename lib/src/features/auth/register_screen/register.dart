@@ -47,14 +47,14 @@ class _Register extends State<Register> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Create an account',
+                  'Создание аккаунта',
                   style: GoogleFonts.roboto(
                       fontWeight: FontWeight.w600, fontSize: 24),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text('Complete the sign up process to get started',
+                Text('Заполните поля для дальнейшей работы',
                     style: GoogleFonts.roboto(
                         color: grayColorDark,
                         fontWeight: FontWeight.w600,
@@ -75,8 +75,8 @@ class _Register extends State<Register> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
-                        hintText: 'What is your full name?',
-                        labelText: 'Full Name'
+                        hintText: 'Введите ваше полное имя?',
+                        labelText: 'Ваше имя'
                     ),
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(50)
@@ -93,7 +93,7 @@ class _Register extends State<Register> {
                           borderRadius: BorderRadius.all(Radius.circular(4)),
                         ),
                         hintText: '7 (955) 281 35 56',
-                        labelText: 'Phone number',
+                        labelText: 'Номер телефона',
                     ),
                     keyboardType: TextInputType.phone,
                     inputFormatters: [
@@ -111,7 +111,7 @@ class _Register extends State<Register> {
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
                         hintText: 'example@test.com',
-                        labelText: 'Email Address'
+                        labelText: 'Email адресс'
                     ),
                     keyboardType: TextInputType.emailAddress,
                     inputFormatters: [
@@ -129,7 +129,7 @@ class _Register extends State<Register> {
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
                         hintText: '*******',
-                        labelText: 'Password',
+                        labelText: 'Пароль',
                         suffixIcon: IconButton(
                           icon: Icon(
                             obscurePassword
@@ -165,14 +165,14 @@ class _Register extends State<Register> {
                               alignment: WrapAlignment.center,
                               children: [
                                 Text(
-                                  'By ticking this box, you agree to our ',
+                                  'Поставив галочку в этом поле, вы соглашаетесь с нашими',
                                   style: GoogleFonts.roboto(
                                     fontSize: 15,
                                     color: grayColorDark,
                                   ),
                                 ),
                                 Text(
-                                  'Terms and conditions and private policy',
+                                  'условиями и политикой конфиденциальности',
                                   style: GoogleFonts.roboto(
                                     fontSize: 15,
                                     color: warningColor,
@@ -209,11 +209,11 @@ class _Register extends State<Register> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Already have an account? ',
+                        'У вас уже есть аккаунт? ',
                         style: GoogleFonts.roboto(color: grayColorDark),
                       ),
                       Text(
-                        'Sign in',
+                        'Войти',
                         style: GoogleFonts.roboto(
                             color: primaryColor, fontWeight: FontWeight.w600),
                       ),
