@@ -86,14 +86,14 @@ class _OnBoarding extends State<OnBoarding> {
                   children: [
                     OutlinedButton(
                       onPressed: () {
-                        _controller.jumpToPage(2);
+                        Navigator.pushNamed(context, '/TEST');
                       },
                       style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: primaryColor),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           )),
-                      child: const Text('Skip'),
+                      child: const Text('TEST'),
                     ),
                     SmoothPageIndicator(
                       controller: _controller,
