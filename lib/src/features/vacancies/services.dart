@@ -5,9 +5,6 @@ import 'package:hackaton/src/features/auth/profile/profile.dart';
 
 import 'package:hackaton/src/constants/colors.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
 class MyApp extends StatelessWidget {
   @override
@@ -48,72 +45,13 @@ class ServicesPage extends StatelessWidget {
 
 
 
+
 class YourCustomHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, '/TEST');
-        // Например, Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen()));
-      },
-      child: Container(
-        height: 108,
-        width: double.infinity,
-        margin: EdgeInsets.only(bottom: 8),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: Offset(0, 3),
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        // Adjusted content position
-        child: Row(
-          children: [
-            SizedBox(width: 10), // Add some space on the left
-            Transform.translate(
-              offset: Offset(0, 32), // Move icon down
-              child: Icon(
-                IconData(0xe094, fontFamily: 'MaterialIcons', matchTextDirection: true),
-                color: Color(0xff0560FA),
-              ),
-            ),
-            SizedBox(width: 138), // Add space between icon and text
-            Transform.translate(
-              offset: Offset(0, 33), // Move text lower
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Услуги',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: primaryColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class ServicesMontage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      width: 362,
+      height: 108,
+      width: double.infinity,
       margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         boxShadow: [
@@ -128,26 +66,90 @@ class ServicesMontage extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Монтажник',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
+          SizedBox(width: 10), // Add some space on the left
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/TEST');
+              // For example: Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen()));
+            },
+            child: Transform.translate(
+              offset: Offset(0, 32), // Move icon down
+              child: Icon(
+                IconData(0xe094, fontFamily: 'MaterialIcons', matchTextDirection: true),
+                color: Color(0xff0560FA),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Color(0xff0560FA),
+          SizedBox(width: 138), // Add space between icon and text
+          Transform.translate(
+            offset: Offset(0, 33), // Move text lower
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Услуги',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: primaryColor, // Change to the desired color
+                  ),
+                ),
+              ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ServicesMontage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/AvailableVacation'); // Replace YOUR_ROUTE_NAME with the actual route name
+        // For example: Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen()));
+      },
+      child: Container(
+        height: 50,
+        width: 362,
+        margin: EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 3),
+            ),
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Text(
+                'Монтажник',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Icon(
+                IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+                color: Color(0xff0560FA),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
