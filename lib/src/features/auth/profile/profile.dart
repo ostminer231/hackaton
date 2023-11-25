@@ -257,7 +257,7 @@ class NavigationBarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: NavigationExample());
+    return const MaterialApp(debugShowCheckedModeBanner: false, home: NavigationExample());
   }
 }
 
@@ -274,12 +274,10 @@ class _NavigationExampleState extends State<NavigationExample> {
   String getTitle(int index) {
     switch (index) {
       case 0:
-        return 'Главное';
+        return 'Вакансии';
       case 1:
         return 'Услуги';
       case 2:
-        return 'Вакансии';
-      case 3:
         return 'Профиль';
       default:
         return 'Страница';
@@ -288,9 +286,8 @@ class _NavigationExampleState extends State<NavigationExample> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
-      const Page_2(), // Экран Главное
-      const Center(child: Text('Saved Screen')), // Экран Saved
+    final List<Widget> _pages = [ // Экран Главное
+      const Page_2(), // Экран Вакансий
       const Center(child: Text('Saved Screen')),
       const Page_1(), // Экран Профиль
     ];
@@ -324,16 +321,11 @@ class _NavigationExampleState extends State<NavigationExample> {
         destinations: const <Widget>[
           NavigationDestination(
             icon: Icon(Icons.home),
-            label: 'Главное',
+            label: 'Вакансии',
           ),
           NavigationDestination(
             icon: Icon(Icons.commute),
             label: 'Услуги',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.explore_outlined),
-            icon: Icon(Icons.explore),
-            label: 'Вакансии',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.supervised_user_circle_outlined),
