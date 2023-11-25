@@ -53,7 +53,7 @@ class YourCustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Ваш код для навигации
+        Navigator.pushNamed(context, '/TEST');
         // Например, Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen()));
       },
       child: Container(
