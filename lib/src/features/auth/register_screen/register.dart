@@ -212,10 +212,15 @@ class _Register extends State<Register> {
                         'У вас уже есть аккаунт? ',
                         style: GoogleFonts.roboto(color: grayColorDark),
                       ),
-                      Text(
-                        'Войти',
-                        style: GoogleFonts.roboto(
-                            color: primaryColor, fontWeight: FontWeight.w600),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/login_page');
+                        },
+                        child: Text(
+                          'Войти',
+                          style: GoogleFonts.roboto(
+                              color: primaryColor, fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ],
                   ),
@@ -251,11 +256,7 @@ class _Register extends State<Register> {
   }
 
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      print('Name: ${_fullName.text}');
-
-      Navigator.pushNamed(context, '/profile');
-    }
+      Navigator.pushNamed(context, '/forgot_password');
   }
 
   String? fullNameValidate(value) {
