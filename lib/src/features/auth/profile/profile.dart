@@ -192,6 +192,9 @@ class Page_2 extends StatelessWidget {
             // Обработка нажатия
           },
         ),
+        SizedBox(
+          height: 15,
+        ),
         CompanyTile(
           icon: 'assets/images/HomePage/shipyard.png',
           title: 'ЩЕРБИНСКИЙ ЛИФТОСТРОИТЕЛЬНЫЙ ЗАВОД',
@@ -199,12 +202,18 @@ class Page_2 extends StatelessWidget {
             // Обработка нажатия
           },
         ),
+        SizedBox(
+          height: 15,
+        ),
         CompanyTile(
           icon: 'assets/images/HomePage/avialift.png',
           title: 'Avialift',
           onTap: () {
             // Обработка нажатия
           },
+        ),
+        SizedBox(
+          height: 15,
         ),
         CompanyTile(
           icon: 'assets/images/HomePage/eonessi.png',
@@ -252,6 +261,266 @@ class CompanyTile extends StatelessWidget {
   }
 }
 
+class Page_3 extends StatelessWidget {
+  const Page_3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            ServicesMontage(),
+            SizedBox(height: 10),
+            ServicesTechnician(),
+            SizedBox(height: 10),
+            ServicesProgrammer(),
+            SizedBox(height: 10),
+            ServicesEngineer(),
+            SizedBox(height: 10),
+            ServicesMeneger() // Assuming this is the correct name
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ServicesMontage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/AvailableVacation');
+      },
+      child: Container(
+        height: 50,
+        width: 362,
+        margin: EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 3),
+            ),
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Text(
+                'Монтажник',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Icon(
+                IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+                color: Color(0xff0560FA),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ServicesTechnician extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Техник по обслуживания',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesProgrammer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Программист оборудования',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesEngineer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Инженер-конструктор',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesMeneger extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Менеджер по продукции',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
 
@@ -288,7 +557,7 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [ // Экран Главное
       const Page_2(), // Экран Вакансий
-      const Center(child: Text('Saved Screen')),
+      const Page_3(), // Услуги
       const Page_1(), // Экран Профиль
     ];
 
