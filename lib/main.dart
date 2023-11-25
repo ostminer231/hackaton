@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         '/session_1/onboarding': (context) => const OnBoarding(),
-        '/session_2/register': (context) => const RoleScreen(),
+        '/session_2/register': (context) => const Register(),
       },
     );
   }
