@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/colors.dart';
 
 class RoleScreen extends StatefulWidget {
   const RoleScreen({Key? key}) : super(key: key);
@@ -81,7 +82,7 @@ class _RoleScreenState extends State<RoleScreen> {
         width: 326,
         height: 105,
         decoration: BoxDecoration(
-          color: selectedRole == text ? Colors.blue : Colors.white,
+          color: selectedRole == text ? primaryColor : Colors.white,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: selectedRole == text ? Colors.blue : Colors.black,
