@@ -13,7 +13,6 @@ import 'src/features/auth/profile/profile.dart';
 import 'src/features/auth/register_screen/pin.dart';
 import 'src/features/vacancies/vacancies.dart';
 import 'src/features/vacancies/services.dart';
-import 'src/features/vacancies/availableVacation.dart';
 
 
 
@@ -38,7 +37,6 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const Profile(),
         '/services': (context) => const ServicesPage(),
         '/pin': (context) => const PIN_page(),
-        '/AvailableVacation': (context) => const AvailableVacation(),
       },
     );
   }
