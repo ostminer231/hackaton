@@ -43,7 +43,7 @@ class _RoleScreenState extends State<RoleScreen> {
                           // Обработка нажатия кнопки "Далее" в зависимости от выбранной роли
                           if (selectedRole == 'СОИСКАТЕЛЬ') {
                             // Перейти на страницу для СОИСКАТЕЛЯ
-                            Navigator.pushNamed(context, '/applicant_page');
+                            Navigator.pushNamed(context, '/session_2/register');
                           } else if (selectedRole == 'СОИСКАТЕЛЬ-БРИГАДИР') {
                             // Перейти на страницу для СОИСКАТЕЛЯ-БРИГАДИРА
                             Navigator.pushNamed(context, '/brigadier_applicant_page');

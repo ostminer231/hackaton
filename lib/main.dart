@@ -7,6 +7,7 @@ import 'src/features/auth/register_screen/register.dart';
 import 'src/features/auth/register_screen/role.dart';
 import 'src/features/auth/register_screen/forgot_password.dart';
 import 'src/features/auth/login_screens/login.dart';
+import 'src/features/auth/register_screen/OTP_Verification.dart';
 
 
 void main() => runApp(const MyApp());
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         //'/profile': (context) => const Profile(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/login_page': (context) => const Login(),
-        '/role_page': (context) => const RoleScreen()
+        '/role_page': (context) => const RoleScreen(),
+        '/otp_verification': (context) => const OTP_Verification_page(),
       },
     );
   }
