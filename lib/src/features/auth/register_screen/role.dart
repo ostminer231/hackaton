@@ -82,10 +82,10 @@ class _RoleScreenState extends State<RoleScreen> {
         width: 326,
         height: 105,
         decoration: BoxDecoration(
-          color: selectedRole == text ? primaryColor : Colors.white,
+          color: selectedRole == text ? primaryColor : grayColorLight,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selectedRole == text ? Colors.blue : Colors.black,
+            color: selectedRole == text ? Colors.black : grayColorLight,
             width: 2.0,
           ),
         ),
