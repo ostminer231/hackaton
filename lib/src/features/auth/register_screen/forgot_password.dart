@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -46,8 +47,15 @@ class ForgotPasswordPage extends StatelessWidget {
                 style: TextStyle(fontSize: 14.0, color: Colors.black.withOpacity(0.5)),
                 children: [
                   TextSpan(
-                    text: 'Входу',
-                    style: TextStyle(color: Color(0xFF0560FA))
+                    text: 'входу',
+                    style: TextStyle(
+                      color: Color(0xFF0560FA),
+                      decoration: TextDecoration.underline,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.pushNamed(context, '/login_page');
+                      },
                   ),
                 ],
               ),
