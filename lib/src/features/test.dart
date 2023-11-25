@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 
-class MyApp extends StatelessWidget {
+class TestButtons extends StatelessWidget {
+  const TestButtons({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,9 +37,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Множество кнопок'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
