@@ -192,6 +192,9 @@ class Page_2 extends StatelessWidget {
             // Обработка нажатия
           },
         ),
+        SizedBox(
+          height: 15,
+        ),
         CompanyTile(
           icon: 'assets/images/HomePage/shipyard.png',
           title: 'ЩЕРБИНСКИЙ ЛИФТОСТРОИТЕЛЬНЫЙ ЗАВОД',
@@ -199,12 +202,18 @@ class Page_2 extends StatelessWidget {
             // Обработка нажатия
           },
         ),
+        SizedBox(
+          height: 15,
+        ),
         CompanyTile(
           icon: 'assets/images/HomePage/avialift.png',
           title: 'Avialift',
           onTap: () {
             // Обработка нажатия
           },
+        ),
+        SizedBox(
+          height: 15,
         ),
         CompanyTile(
           icon: 'assets/images/HomePage/eonessi.png',
@@ -254,21 +263,27 @@ class CompanyTile extends StatelessWidget {
 
 class Page_3 extends StatelessWidget {
   const Page_3({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [ // Add some space between the headers
-          ServicesMontage(),
-          SizedBox(height: 10),
-          ServicesTechnician(),
-          SizedBox(height: 10),
-          ServicesProgrammer(),
-          SizedBox(height: 10),
-          ServicesEngineer(),
-          SizedBox(height: 10),
-          ServicesMeneger()
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            ServicesMontage(),
+            SizedBox(height: 10),
+            ServicesTechnician(),
+            SizedBox(height: 10),
+            ServicesProgrammer(),
+            SizedBox(height: 10),
+            ServicesEngineer(),
+            SizedBox(height: 10),
+            ServicesMeneger() // Assuming this is the correct name
+          ],
+        ),
       ),
     );
   }
