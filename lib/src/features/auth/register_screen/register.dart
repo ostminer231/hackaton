@@ -42,7 +42,7 @@ class _Register extends State<Register> {
       body: Stack(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 36, left: 20),
+            margin: const EdgeInsets.only(top: 70, left: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -175,7 +175,7 @@ class _Register extends State<Register> {
                                   'условиями и политикой конфиденциальности',
                                   style: GoogleFonts.roboto(
                                     fontSize: 15,
-                                    color: warningColor,
+                                    color: infoColor,
                                   ),
                                 ),
                               ],
@@ -195,7 +195,7 @@ class _Register extends State<Register> {
                       backgroundColor: primaryColor,
                     ),
                     child: Text(
-                      'Sign Up',
+                      'Зарегистироваться',
                       style: GoogleFonts.roboto(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
@@ -203,13 +203,13 @@ class _Register extends State<Register> {
                     ),
                   ),
                   const SizedBox(
-                    height: 3,
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'У вас уже есть аккаунт? ',
+                        'У вас уже есть аккаунт?      ',
                         style: GoogleFonts.roboto(color: grayColorDark),
                       ),
                       GestureDetector(
@@ -224,28 +224,6 @@ class _Register extends State<Register> {
                       ),
                     ],
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      Text(
-                        'or sign in using',
-                        style: GoogleFonts.roboto(
-                          color: grayColorDark,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Image.asset(
-                        'assets/icons/google.png',
-                        height: 16,
-                        width: 16,
-                      )
-                    ],
-                  )
                 ],
               ),
             ),
@@ -256,7 +234,7 @@ class _Register extends State<Register> {
   }
 
   void _submitForm() {
-      Navigator.pushNamed(context, '/forgot_password');
+      Navigator.pushNamed(context, '/pin');
   }
 
   String? fullNameValidate(value) {
