@@ -170,7 +170,12 @@ class ConfirmPINPage extends StatelessWidget {
                   );
                 }
               },
-              child: Text('Подтвердить'),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                child: Text('Подтвердить'),
+              ),
             ),
           ],
         ),
