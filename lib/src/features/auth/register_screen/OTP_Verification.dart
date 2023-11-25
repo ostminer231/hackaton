@@ -30,31 +30,31 @@ class OTP_Verification_page extends StatelessWidget {
             SizedBox(height: 20.0),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Электронная почта',
-                hintText: 'example@example.com',
+                labelText: 'КОД',
               ),
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 25.0),
             Text.rich(
               TextSpan(
-                text: 'Если вы не получили код,',
+                text: 'Если вы не получили код, ',
                 style: TextStyle(fontSize: 14.0, color: Colors.black.withOpacity(0.5)),
                 children: [
                   TextSpan(
-                    text: 'Отправить повторно',
+                    text: 'отправить повторно',
                     style: TextStyle(
                       color: Color(0xFF0560FA),
                       decoration: TextDecoration.underline,
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-
+                        // Добавьте здесь код, который выполнится при нажатии на "отправить повторно"
                       },
                   ),
                 ],
               ),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
                 // Добавьте здесь логику для отправки одноразового пароля

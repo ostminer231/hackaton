@@ -57,8 +57,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             ElevatedButton(
               onPressed: _isValidEmail
                   ? () {
-                // Логика для отправки одноразового пароля
-                print('Логика для отправки одноразового пароля');
+                Navigator.pushNamed(context, '/otp_verification');
               }
                   : null,
               style: ElevatedButton.styleFrom(
