@@ -29,48 +29,82 @@ class ServicesPage extends StatelessWidget {
           YourCustomHeader(),
           SizedBox(height: 16), // Add some space between the headers
           ServicesMontage(),
+          SizedBox(height: 10),
+          ServicesTechnician(),
+          SizedBox(height: 10),
+          ServicesProgrammer(),
+          SizedBox(height: 10),
+          ServicesEngineer(),
+          SizedBox(height: 10),
+          ServicesMeneger()
         ],
       ),
     );
   }
 }
 
+
+
+
 class YourCustomHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 108,
-      width: double.infinity,
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      // Adjusted content position
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 66), // Add some space above the text
-          Text(
-            'Услуги',
-            style: TextStyle(
-              fontSize: 20,
-              color: primaryColor,
+    return InkWell(
+      onTap: () {
+        // Ваш код для навигации
+        // Например, Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen()));
+      },
+      child: Container(
+        height: 108,
+        width: double.infinity,
+        margin: EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 3),
             ),
-          ),
-        ],
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        // Adjusted content position
+        child: Row(
+          children: [
+            SizedBox(width: 10), // Add some space on the left
+            Transform.translate(
+              offset: Offset(0, 32), // Move icon down
+              child: Icon(
+                IconData(0xe094, fontFamily: 'MaterialIcons', matchTextDirection: true),
+                color: Color(0xff0560FA),
+              ),
+            ),
+            SizedBox(width: 138), // Add space between icon and text
+            Transform.translate(
+              offset: Offset(0, 33), // Move text lower
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Услуги',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: primaryColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class ServicesMontage extends StatelessWidget {
   @override
@@ -107,8 +141,8 @@ class ServicesMontage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Icon(
-              IconData(0xf63b, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Colors.black,
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
             ),
           ),
         ],
@@ -117,11 +151,11 @@ class ServicesMontage extends StatelessWidget {
   }
 }
 
-class Services2 extends StatelessWidget {
+class ServicesTechnician extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 50,
       width: 362,
       margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
@@ -142,7 +176,7 @@ class Services2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16),
             child: Text(
-              'Монтажник',
+              'Техник по обслуживания',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
@@ -152,8 +186,143 @@ class Services2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Icon(
-              IconData(0xf63b, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Colors.black,
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesProgrammer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Программист оборудования',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesEngineer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Инженер-конструктор',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ServicesMeneger extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 362,
+      margin: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Text(
+              'Менеджер по продукции',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
             ),
           ),
         ],
