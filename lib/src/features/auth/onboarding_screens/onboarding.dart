@@ -93,14 +93,14 @@ class _OnBoarding extends State<OnBoarding> {
                   children: [
                     OutlinedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/TEST');
+                        Navigator.pushNamed(context, '/session_2/register');
                       },
                       style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: primaryColor),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           )),
-                      child: const Text('SKIP'),
+                      child: const Text('Пропустить'),
                     ),
                     SmoothPageIndicator(
                       controller: _controller,
@@ -124,7 +124,7 @@ class _OnBoarding extends State<OnBoarding> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),
-                      child: const Text('Дальше'),
+                      child: const Text('Далее'),
                     )
                   ],
                 ),

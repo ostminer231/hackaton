@@ -12,7 +12,7 @@ class IntroPage1 extends StatelessWidget {
       margin: const EdgeInsets.only(top: 100),
       child: Column(
         children: [
-          Image.asset(onBoardingImage1),
+          Image.asset("assets/images/onboarding/on1.png"),
           const SizedBox(
             height: 50,
           ),
