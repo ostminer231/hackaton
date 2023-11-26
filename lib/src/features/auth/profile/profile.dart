@@ -251,7 +251,7 @@ class mainInfo_1 extends StatelessWidget {
         title: const Text(
           'Вакансии',
           style: TextStyle(
-            color: Colors.blue, // Используйте ваш primaryColor
+            color: primaryColor, // Используйте ваш primaryColor
             fontWeight: FontWeight.bold,
           ),
         ),
