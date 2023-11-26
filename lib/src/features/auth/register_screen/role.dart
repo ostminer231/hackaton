@@ -80,7 +80,7 @@ class _RoleScreenState extends State<RoleScreen> {
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
         onPressed: selectedRole.isNotEmpty ? () {
-          // Обработка нажатия кнопки "Далее"
+          Navigator.pushNamed(context, '/session_2/register');
         } : null,
         style: ElevatedButton.styleFrom(
           primary: primaryColor,

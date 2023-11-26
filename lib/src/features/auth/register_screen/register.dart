@@ -76,7 +76,7 @@ class _Register extends State<Register> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
-                        hintText: 'Введите ваше полное имя?',
+                        hintText: 'Введите ваше полное имя',
                         labelText: 'Ваше имя'
                     ),
                     inputFormatters: [
@@ -111,7 +111,7 @@ class _Register extends State<Register> {
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
                         hintText: 'example@test.com',
-                        labelText: 'Email адресс'
+                        labelText: 'Email адрес'
                     ),
                     keyboardType: TextInputType.emailAddress,
                     inputFormatters: [
