@@ -241,8 +241,8 @@ class UserTitles extends StatelessWidget {
   }
 }
 
-class mainInfo extends StatelessWidget {
-  const mainInfo({super.key});
+class mainInfo_1 extends StatelessWidget {
+  const mainInfo_1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -395,6 +395,470 @@ class cUserHeader extends StatelessWidget {
   }
 }
 
+class mainInfo_2 extends StatelessWidget {
+  const mainInfo_2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Вакансии',
+          style: TextStyle(
+            color: Colors.blue, // Используйте ваш primaryColor
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.blue), // Используйте ваш primaryColor
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const cUserHeader_2(), // Предполагается, что CUserHeader определен в другом месте
+            const SizedBox(height: 30),
+            const Text(
+              'Мы нуждаемся в:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Монтажник лифтов',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Минимальный стаж',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '1 год',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Номер телефона:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '+79226301225',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class cUserHeader_2 extends StatelessWidget {
+  const cUserHeader_2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/images/HomePage/shipyard.png'),
+            radius: 35,
+            backgroundColor: Colors.white,
+          ),
+          const SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'ЩЛЗ',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Статус: ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'в поиске',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: successColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class mainInfo_3 extends StatelessWidget {
+  const mainInfo_3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Вакансии',
+          style: TextStyle(
+            color: Colors.blue, // Используйте ваш primaryColor
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.blue), // Используйте ваш primaryColor
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const cUserHeader_3(), // Предполагается, что CUserHeader определен в другом месте
+            const SizedBox(height: 30),
+            const Text(
+              'Мы нуждаемся в:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Инженер-конструктор',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Минимальный стаж',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '2 года',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Номер телефона:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '+79223302530',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class cUserHeader_3 extends StatelessWidget {
+  const cUserHeader_3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/images/HomePage/avialift.png'),
+            radius: 35,
+            backgroundColor: Colors.white,
+          ),
+          const SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Avaliaft',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Статус: ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'в поиске',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: successColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class mainInfo_4 extends StatelessWidget {
+  const mainInfo_4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Вакансии',
+          style: TextStyle(
+            color: Colors.blue, // Используйте ваш primaryColor
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.blue), // Используйте ваш primaryColor
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const cUserHeader_4(), // Предполагается, что CUserHeader определен в другом месте
+            const SizedBox(height: 30),
+            const Text(
+              'Мы нуждаемся в:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Техник по обслуживанию',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Минимальный стаж',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '4 года',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Номер телефона:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '+79225437575',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class cUserHeader_4 extends StatelessWidget {
+  const cUserHeader_4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/images/HomePage/eonessi.png'),
+            radius: 35,
+            backgroundColor: Colors.white,
+          ),
+          const SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Eonessi',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Статус: ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'в поиске',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: successColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
 class Page_2 extends StatelessWidget {
   const Page_2({super.key});
 
@@ -409,7 +873,7 @@ class Page_2 extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const mainInfo()),
+              MaterialPageRoute(builder: (context) => const mainInfo_1()),
             );
           },
         ),
@@ -417,19 +881,34 @@ class Page_2 extends StatelessWidget {
         CompanyTile(
           icon: 'assets/images/HomePage/shipyard.png',
           title: 'ЩЕРБИНСКИЙ ЛИФТОСТРОИТЕЛЬНЫЙ ЗАВОД',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const mainInfo_2()),
+            );
+          },
         ),
         const Divider(),
         CompanyTile(
           icon: 'assets/images/HomePage/avialift.png',
           title: 'Avialift',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const mainInfo_3()),
+            );
+          },
         ),
         const Divider(),
         CompanyTile(
           icon: 'assets/images/HomePage/eonessi.png',
           title: 'Eonessi',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const mainInfo_4()),
+            );
+          },
         ),
       ],
     );
@@ -493,31 +972,26 @@ class Page_3 extends StatelessWidget {
         children: [
           ServiceCard(
             title: 'Менеджер по продукции',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Техник по обслуживанию',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Программист оборудования',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Инженер-конструктор',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Менеджер по продукции',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
         ],
@@ -528,14 +1002,12 @@ class Page_3 extends StatelessWidget {
 
 class ServiceCard extends StatelessWidget {
   final String title;
-  final String route;
   final VoidCallback? onTap; // Добавьте новый параметр
 
   const ServiceCard({
     super.key,
     required this.title,
-    required this.route,
-    this.onTap, // Инициализируйте параметр в конструкторе
+    this.onTap, //
   });
 
   @override
@@ -551,7 +1023,7 @@ class ServiceCard extends StatelessWidget {
           Icons.arrow_forward_ios,
           color: Color(0xff0560FA),
         ),
-        onTap: onTap ?? () => Navigator.pushNamed(context, route), // Используйте onTap
+        onTap: () => Navigator.pushNamed(context, '/availableVacation'),
       ),
     );
   }
@@ -574,23 +1046,19 @@ class _AvailableVacationState extends State<AvailableVacation> {
         children: [
           ServiceCard(
             title: 'Гриценко Владислав',
-            route: '/availableVacation',
             onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Шамсутдинов Марсель',
-            route: '/availableVacation',
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Дададжанов Нурмухаммад',
-            route: '/availableVacation'
           ),
           const SizedBox(height: 10),
           ServiceCard(
             title: 'Гриценко Владислав',
-            route: '/availableVacation'
           ),
           const SizedBox(height: 10),
         ],

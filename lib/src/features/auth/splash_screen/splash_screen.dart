@@ -23,11 +23,12 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // Установка белого фона для Scaffold
       body: Center(
         child: Image.asset(
           'assets/images/splash/splash-top-icon.png',
-          height: 200,
-          width: 200,
+          height: 400,
+          width: 400,
         ),
       ),
     );

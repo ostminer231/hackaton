@@ -9,7 +9,6 @@ import 'src/features/auth/login_screens/login.dart';
 import 'src/features/auth/register_screen/OTP_Verification.dart';
 import 'src/features/test.dart';
 import 'src/features/auth/register_screen/pin.dart';
-import 'src/features/vacancies/availableVacation.dart';
 
 
 
