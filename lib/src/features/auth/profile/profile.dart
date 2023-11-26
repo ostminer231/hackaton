@@ -95,6 +95,15 @@ class _EducationFormState extends State<EducationForm> {
   File? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
+  _saveDocs() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Документ успешно сохранен'),
+        duration: Duration(seconds: 3),
+      ),
+    );
+  }
+
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -111,7 +120,6 @@ class _EducationFormState extends State<EducationForm> {
       appBar: AppBar(
         title: Text(
           'Дoкументы',
-          // Здесь вызываем функцию для установки заголовка
           style: const TextStyle(
             color: primaryColor,
           ),
@@ -127,23 +135,43 @@ class _EducationFormState extends State<EducationForm> {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (_imageFile != null)
-              Image.file(_imageFile!),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              onPressed: _pickImage,
-              child: Text('Прикрепить документ об образовании'),
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(342, 46),
-                backgroundColor: primaryColor,
-            )),
-            // Добавьте здесь другие поля формы, если необходимо
-          ],
+      body: SingleChildScrollView( // Добавляем SingleChildScrollView
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (_imageFile != null)
+                Image.file(_imageFile!),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _pickImage,
+                child: Text('Прикрепить документ об образовании'),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(342, 46),
+                  backgroundColor: primaryColor,
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                minLines: 3,
+                maxLines: 5,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'О себе',
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                child: Text('Сохранить'),
+                onPressed: _saveDocs,
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(342, 46),
+                  backgroundColor: primaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -462,20 +490,36 @@ class Page_3 extends StatelessWidget {
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 16),
-        children: const [
-          ServiceCard(title: 'Монтажник', route: '/AvailableVacation'),
-          SizedBox(height: 10),
+        children: [
           ServiceCard(
-              title: 'Техник по обслуживанию', route: '/AvailableVacation'),
-          SizedBox(height: 10),
+            title: 'Менеджер по продукции',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
+          const SizedBox(height: 10),
           ServiceCard(
-              title: 'Программист оборудования', route: '/AvailableVacation'),
-          SizedBox(height: 10),
+            title: 'Техник по обслуживанию',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
+          const SizedBox(height: 10),
           ServiceCard(
-              title: 'Инженер-конструктор', route: '/AvailableVacation'),
-          SizedBox(height: 10),
+            title: 'Программист оборудования',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
+          const SizedBox(height: 10),
           ServiceCard(
-              title: 'Менеджер по продукции', route: '/AvailableVacation'),
+            title: 'Инженер-конструктор',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
+          const SizedBox(height: 10),
+          ServiceCard(
+            title: 'Менеджер по продукции',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
         ],
       ),
     );
@@ -485,13 +529,19 @@ class Page_3 extends StatelessWidget {
 class ServiceCard extends StatelessWidget {
   final String title;
   final String route;
+  final VoidCallback? onTap; // Добавьте новый параметр
 
-  const ServiceCard({super.key, required this.title, required this.route});
+  const ServiceCard({
+    super.key,
+    required this.title,
+    required this.route,
+    this.onTap, // Инициализируйте параметр в конструкторе
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0, // Установка elevation в 0 убирает тень
+      elevation: 0,
       child: ListTile(
         title: Text(
           title,
@@ -501,7 +551,49 @@ class ServiceCard extends StatelessWidget {
           Icons.arrow_forward_ios,
           color: Color(0xff0560FA),
         ),
-        onTap: () => Navigator.pushNamed(context, route),
+        onTap: onTap ?? () => Navigator.pushNamed(context, route), // Используйте onTap
+      ),
+    );
+  }
+}
+
+class AvailableVacation extends StatefulWidget {
+  const AvailableVacation({Key? key}) : super(key: key);
+
+  @override
+  _AvailableVacationState createState() => _AvailableVacationState();
+}
+
+class _AvailableVacationState extends State<AvailableVacation> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 16),
+        children: [
+          ServiceCard(
+            title: 'Гриценко Владислав',
+            route: '/availableVacation',
+            onTap: () => Navigator.pushNamed(context, '/availableVacation'), // Add onTap callback
+          ),
+          const SizedBox(height: 10),
+          ServiceCard(
+            title: 'Шамсутдинов Марсель',
+            route: '/availableVacation',
+          ),
+          const SizedBox(height: 10),
+          ServiceCard(
+            title: 'Дададжанов Нурмухаммад',
+            route: '/availableVacation'
+          ),
+          const SizedBox(height: 10),
+          ServiceCard(
+            title: 'Гриценко Владислав',
+            route: '/availableVacation'
+          ),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }

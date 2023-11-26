@@ -93,7 +93,7 @@ class _OnBoarding extends State<OnBoarding> {
                   children: [
                     OutlinedButton(
                       onPressed: () {
-
+                        Navigator.pushNamed(context, '/TEST');
                       },
                       style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: primaryColor),

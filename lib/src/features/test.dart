@@ -34,6 +34,12 @@ class TestButtons extends StatelessWidget {
               },
               child: Text('Сервисы'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/availableVacation');
+              },
+              child: Text('Услуги - Далее'),
+            ),
             // Продолжайте добавлять кнопки по аналогии
           ],
         ),
