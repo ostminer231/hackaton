@@ -252,9 +252,8 @@ class CompanyTile extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.3),
-            spreadRadius: 1, // Adjust spread radius as needed
-            blurRadius: 4,
-            offset: Offset(0, 2), // Adjust Y-offset to control vertical shadow position
+            blurRadius: 3, // Matching the blur radius from ServicesMontage
+            offset: Offset(0, 3), // Matching the offset from ServicesMontage
           ),
         ],
       ),
