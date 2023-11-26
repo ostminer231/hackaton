@@ -110,7 +110,7 @@ class _EducationFormState extends State<EducationForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Документы',
+          'Дoкументы',
           // Здесь вызываем функцию для установки заголовка
           style: const TextStyle(
             color: primaryColor,
