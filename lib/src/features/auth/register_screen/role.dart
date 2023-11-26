@@ -18,53 +18,25 @@ class _RoleScreenState extends State<RoleScreen> {
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Text(
-                      'Заполните поля для дальнейшей работы',
-                      style: TextStyle(fontSize: 14, color: Colors.black.withOpacity(0.5)),
-                    ),
-                    SizedBox(height: 16),
-                    _buildCard('СОИСКАТЕЛЬ', Colors.blue.withOpacity(0.7)),
-                    SizedBox(height: 10),
-                    _buildCard('СОИСКАТЕЛЬ-БРИГАДИР', Colors.blue.withOpacity(0.7)),
-                    SizedBox(height: 10),
-                    _buildCard('РАБОТОДАТЕЛЬ', Colors.blue.withOpacity(0.7)),
-                    SizedBox(height: 32),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: selectedRole.isNotEmpty
-                            ? () {
-                          // Обработка нажатия кнопки "Далее" в зависимости от выбранной роли
-                          if (selectedRole == 'СОИСКАТЕЛЬ') {
-                            // Перейти на страницу для СОИСКАТЕЛЯ
-                            Navigator.pushNamed(context, '/session_2/register');
-                          } else if (selectedRole == 'СОИСКАТЕЛЬ-БРИГАДИР') {
-                            // Перейти на страницу для СОИСКАТЕЛЯ-БРИГАДИРА
-                            Navigator.pushNamed(context, '/brigadier_applicant_page');
-                          } else if (selectedRole == 'РАБОТОДАТЕЛЬ') {
-                            // Перейти на страницу для РАБОТОДАТЕЛЯ
-                            Navigator.pushNamed(context, '/employer_page');
-                          }
-                        }
-                            : null,
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blue,
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                        ),
-                        child: Text('Далее', style: TextStyle(fontSize: 16)),
-                      ),
-                    ),
-                  ],
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Заполните поля для дальнейшей работы',
+                  style: TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                _buildCard('СОИСКАТЕЛЬ', Colors.blue.withOpacity(0.7)),
+                SizedBox(height: 10),
+                _buildCard('СОИСКАТЕЛЬ-БРИГАДИР', Colors.green.withOpacity(0.7)),
+                SizedBox(height: 10),
+                _buildCard('РАБОТОДАТЕЛЬ', Colors.red.withOpacity(0.7)),
+                SizedBox(height: 20),
+                _buildNextButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -79,22 +51,46 @@ class _RoleScreenState extends State<RoleScreen> {
         });
       },
       child: Container(
-        width: 326,
-        height: 105,
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: 60,
         decoration: BoxDecoration(
           color: selectedRole == text ? primaryColor : grayColorLight,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: selectedRole == text ? Colors.black : grayColorLight,
-            width: 2.0,
-          ),
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
         ),
         child: Center(
           child: Text(
             text,
-            style: TextStyle(fontSize: 16, color: selectedRole == text ? Colors.white : Colors.black),
+            style: TextStyle(fontSize: 18, color: selectedRole == text ? Colors.white : Colors.black),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildNextButton() {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: ElevatedButton(
+        onPressed: selectedRole.isNotEmpty ? () {
+          // Обработка нажатия кнопки "Далее"
+        } : null,
+        style: ElevatedButton.styleFrom(
+          primary: primaryColor,
+          padding: EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          elevation: 5,
+        ),
+        child: Text('Далее', style: TextStyle(fontSize: 18)),
       ),
     );
   }

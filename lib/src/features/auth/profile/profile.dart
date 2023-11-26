@@ -231,30 +231,49 @@ class CompanyTile extends StatelessWidget {
   final String icon;
   final String title;
   final VoidCallback onTap;
+  final double height;
+  final double width;
 
   const CompanyTile({
     super.key,
     required this.icon,
     required this.title,
     required this.onTap,
+    this.height = 70,
+    this.width = 362,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Image.asset(
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 1, // Adjust spread radius as needed
+            blurRadius: 4,
+            offset: Offset(0, 2), // Adjust Y-offset to control vertical shadow position
+          ),
+        ],
+      ),
+      child: Card(
+        child: ListTile(
+          leading: Image.asset(
             icon,
             width: 50,
             height: 50,
-        ), // Использование Image.asset для PNG/JPG иконок
-        title: Text(title),
-        trailing: IconButton(
-          icon: const Icon(
-            IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-            color: Color(0xff0560FA),
           ),
-          onPressed: onTap,
+          title: Text(title),
+          trailing: IconButton(
+            icon: Icon(
+              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
+              color: Color(0xff0560FA),
+            ),
+            onPressed: onTap,
+          ),
+          onTap: onTap,
         ),
       ),
     );
