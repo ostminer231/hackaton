@@ -89,6 +89,7 @@ class UserTitles extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
+
       child: Column(
         children: [
           _buildUserTile(
@@ -103,7 +104,12 @@ class UserTitles extends StatelessWidget {
             icon: Icons.add_chart_outlined,
             title: 'Документы',
             subtitle: 'Документы об образовании',
-            onTap: () => print('Карточка Документы нажата'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const mainInfo()),
+              );
+            },
           ),
           _buildUserTile(
             context,
@@ -147,30 +153,89 @@ class mainInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Вакансии',
-            // Здесь вызываем функцию для установки заголовка
-            style: const TextStyle(
-              color: primaryColor,
-            ),
+      appBar: AppBar(
+        title: const Text(
+          'Вакансии',
+          style: TextStyle(
+            color: Colors.blue, // Используйте ваш primaryColor
+            fontWeight: FontWeight.bold,
           ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: primaryColor),
-            onPressed: () {
-              if (Navigator.canPop(context)) {
-                Navigator.pop(context);
-              }
-            },
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.white,
         ),
-        body: Column(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.blue), // Используйте ваш primaryColor
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            cUserHeader(),
+            const cUserHeader(), // Предполагается, что CUserHeader определен в другом месте
+            const SizedBox(height: 30),
+            const Text(
+              'Мы нуждаемся в:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Монтажник лифтов',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Минимальный стаж',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '3 года',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Номер телефона:',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              '+79227648353',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -204,7 +269,7 @@ class cUserHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Carlo Marcs',
+                'Arpicon',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
