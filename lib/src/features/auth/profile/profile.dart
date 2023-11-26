@@ -65,7 +65,7 @@ class UserHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Carlo Marcs',
+                'Денис Абдулов',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
