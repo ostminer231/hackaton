@@ -5,13 +5,10 @@ import 'src/features/auth/splash_screen/splash_screen.dart';
 import 'src/features/auth/onboarding_screens/onboarding.dart';
 import 'src/features/auth/register_screen/register.dart';
 import 'src/features/auth/register_screen/role.dart';
-import 'src/features/auth/register_screen/forgot_password.dart';
 import 'src/features/auth/login_screens/login.dart';
 import 'src/features/auth/register_screen/OTP_Verification.dart';
 import 'src/features/test.dart';
-import 'src/features/auth/profile/profile.dart';
 import 'src/features/auth/register_screen/pin.dart';
-import 'src/features/vacancies/vacancies.dart';
 import 'src/features/vacancies/availableVacation.dart';
 
 
