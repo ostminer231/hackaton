@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hackaton/src/constants/colors.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 void main() => runApp(const Profile());
 
@@ -84,6 +86,70 @@ class UserHeader extends StatelessWidget {
   }
 }
 
+class EducationForm extends StatefulWidget {
+  @override
+  _EducationFormState createState() => _EducationFormState();
+}
+
+class _EducationFormState extends State<EducationForm> {
+  File? _imageFile;
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _imageFile = File(pickedFile.path);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Документы',
+          // Здесь вызываем функцию для установки заголовка
+          style: const TextStyle(
+            color: primaryColor,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: primaryColor),
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (_imageFile != null)
+              Image.file(_imageFile!),
+            SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: _pickImage,
+              child: Text('Прикрепить документ об образовании'),
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(342, 46),
+                backgroundColor: primaryColor,
+            )),
+            // Добавьте здесь другие поля формы, если необходимо
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class UserTitles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -107,7 +173,7 @@ class UserTitles extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const mainInfo()),
+                MaterialPageRoute(builder: (context) => EducationForm()),
               );
             },
           ),
