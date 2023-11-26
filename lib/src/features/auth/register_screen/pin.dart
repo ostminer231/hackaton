@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hackaton/src/constants/colors.dart';
 
 class PIN_page extends StatefulWidget {
   const PIN_page({super.key});
@@ -34,13 +35,17 @@ class _PINPageState extends State<PIN_page> {
           children: [
             Text(
               'Установите ПИН-код',
-              style: TextStyle(fontSize: 30.0),
+              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600,),
               textAlign: TextAlign.left,
             ),
             SizedBox(height: 20.0),
             Text(
               'Введите 4-значное число, которое будет использоваться для входа в приложение',
-              style: TextStyle(fontSize: 20.0, color: Colors.black.withOpacity(0.5)),
+              style: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+              fontSize: 16,
+            ),
               textAlign: TextAlign.left,
             ),
             SizedBox(height: 20.0),
@@ -49,7 +54,7 @@ class _PINPageState extends State<PIN_page> {
               decoration: InputDecoration(
                 labelText: 'Введите ПИН-код',
                 labelStyle: TextStyle(
-                  fontSize: 20, // Установка размера шрифта для метки
+                  fontSize: 18, // Установка размера шрифта для метки
                 ),
               ),
               keyboardType: TextInputType.number,
@@ -85,6 +90,10 @@ class _PINPageState extends State<PIN_page> {
                   );
                 }
               },
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(342, 46),
+                backgroundColor: primaryColor,
+              ),
               // Ваши стили для ElevatedButton
               child: Text('Установить PIN-код'),
             ),
@@ -95,11 +104,12 @@ class _PINPageState extends State<PIN_page> {
   }
 }
 
+
 class ConfirmPINPage extends StatelessWidget {
   final String pin;
   final TextEditingController pinController = TextEditingController();
 
-  ConfirmPINPage({required this.pin});
+  ConfirmPINPage({super.key, required this.pin});
 
   @override
   Widget build(BuildContext context) {
@@ -112,17 +122,15 @@ class ConfirmPINPage extends StatelessWidget {
           children: [
             Text(
               'Подтвердите ваш ПИН-код',
-              style: TextStyle(fontSize: 20.0),
+              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20.0),
             TextField(
               controller: pinController,
               decoration: InputDecoration(
-                labelText: 'ПИН-код',
-                labelStyle: TextStyle(
-                  fontSize: 20, // Установка размера шрифта для метки
-                ),
+                labelText: 'Введите ПИН-код',
+                labelStyle: TextStyle(fontSize: 18),
               ),
               keyboardType: TextInputType.number,
               inputFormatters: [
@@ -134,34 +142,18 @@ class ConfirmPINPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 if (pinController.text == pin) {
-                  // Показать диалоговое окно с подтверждением
+                  // ПИН-код подтвержден, действие при успешном подтверждении
+                  Navigator.pushNamed(context, '/profile');
+                } else {
+                  // Показать ошибку, если PIN-код не совпадает
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        content: Text("PIN-код подтвержден!"),
+                        content: Text("Введенный ПИН-код не совпадает"),
                         actions: [
                           TextButton(
                             child: Text('ОК'),
-                            onPressed: () {
-                              Navigator.of(context).pop(); // Закрыть диалоговое окно
-                              Navigator.pushNamed(context, '/profile'); // Переход на страницу профиля
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                } else {
-                  // Показать сообщение об ошибке
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        content: Text("Неверный PIN-код"),
-                        actions: [
-                          TextButton(
-                            child: Text('Повторить'),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
                         ],
@@ -170,12 +162,11 @@ class ConfirmPINPage extends StatelessWidget {
                   );
                 }
               },
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-                child: Text('Подтвердить'),
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(342, 46),
+                backgroundColor: primaryColor,
               ),
+              child: Text('Подтвердить ПИН-код'),
             ),
           ],
         ),

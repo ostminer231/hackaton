@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 import 'package:hackaton/src/constants/colors.dart';
 
 void main() => runApp(const Profile());
-
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -26,6 +24,7 @@ class _Profile extends State<Profile> {
 
 class Page_1 extends StatelessWidget {
   const Page_1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,138 +37,201 @@ class Page_1 extends StatelessWidget {
 }
 
 class UserHeader extends StatelessWidget {
-  const UserHeader({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 35),
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: AssetImage('assets/icons/user.png'),
-          backgroundColor: grayColorLight,
-          radius: 35,
-        ),
-        title: Text('Ken Nwaeze'),
-        subtitle: Row(
-          children: [
-            Text(
-              'Статус: ',
-              style: TextStyle(
-                fontSize: 16,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/icons/user.png'),
+            radius: 35,
+          ),
+          const SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Carlo Marcs',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              'в поиске',
-              style: TextStyle(
-                fontSize: 16,
-                color: successColor,
+              Text(
+                'Статус: в поиске',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
 }
 
-
-class UserTitles extends StatefulWidget {
-  const UserTitles({super.key});
-
+class UserTitles extends StatelessWidget {
   @override
-  State<StatefulWidget> createState() {
-    return _UserTitles();
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          _buildUserTile(
+            context,
+            icon: Icons.account_circle,
+            title: 'Редактировать профиль',
+            subtitle: 'Имя, номер телефона, почта...',
+            onTap: () => print('Карточка Редактировать профиль нажата'),
+          ),
+          _buildUserTile(
+            context,
+            icon: Icons.add_chart_outlined,
+            title: 'Документы',
+            subtitle: 'Документы об образовании',
+            onTap: () => print('Карточка Документы нажата'),
+          ),
+          _buildUserTile(
+            context,
+            icon: Icons.output,
+            title: 'Выход',
+            subtitle: '',
+            onTap: () => print('Карточка Выход нажата'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUserTile(BuildContext context,
+      {required IconData icon,
+      required String title,
+      required String subtitle,
+      required VoidCallback onTap}) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      child: ListTile(
+        leading: Icon(icon, size: 42, color: Theme.of(context).primaryColor),
+        title: Text(
+          title,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        subtitle: Text(subtitle, style: TextStyle(fontSize: 14)),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          color: Color(0xff0560FA),
+        ),
+        onTap: onTap,
+      ),
+    );
   }
 }
 
-class _UserTitles extends State<UserTitles> {
+class mainInfo extends StatelessWidget {
+  const mainInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Вакансии',
+            // Здесь вызываем функцию для установки заголовка
+            style: const TextStyle(
+              color: primaryColor,
+            ),
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: primaryColor),
+            onPressed: () {
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              }
+            },
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+        ),
+        body: Column(
+          children: [
+            cUserHeader(),
+          ],
+        ));
+  }
+}
+
+class cUserHeader extends StatelessWidget {
+  const cUserHeader({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Card(
-              child: InkWell(
-                onTap: () {
-                  print('Карточка нажата');
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.account_circle, size: 42, color: grayColorDark),
-                  title: Text(
-                    'Редактировать профиль',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                    ),
-                  ),
-                  subtitle: Text(
-                    'Имя, номер телефона, почта...',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  trailing: Icon(Icons.arrow_forward),
-                  isThreeLine: true,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/images/HomePage/arpicon.png'),
+            radius: 35,
+            backgroundColor: Colors.white,
+          ),
+          const SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Carlo Marcs',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-
-            Card(
-              child: InkWell(
-                onTap: () {
-                  // Действие при нажатии на карточку
-                  print('Карточка Документы нажата');
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.add_chart_outlined, size: 42, color: grayColorDark),
-                  title: Text(
-                    'Документы',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                    ),
-                  ),
-                  subtitle: Text(
-                    'Документы об образовании',
+              Row(
+                children: [
+                  Text(
+                    'Статус: ',
                     style: TextStyle(
                       fontSize: 16,
+                      color: Colors.grey,
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward),
-                  isThreeLine: true,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 250,
-            ),
-            Card(
-              child: Padding(
-                padding: EdgeInsets.all(8.0), // Установка внутреннего отступа
-                child: InkWell(
-                  onTap: () {
-                    // Действие при нажатии на карточку
-                    print('Карточка Выход нажата');
-                  },
-                  child: const ListTile(
-                    leading: Icon(Icons.output, size: 42, color: errorColor),
-                    title: Text(
-                      'Выход',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                      ),
+                  Text(
+                    'в поиске',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: successColor,
                     ),
-                    trailing: Icon(Icons.arrow_forward), // Добавлена иконка стрелки
                   ),
-                ),
+                ],
               ),
-            )
-
-          ],
-        )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -180,47 +242,35 @@ class Page_2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       children: [
-        SizedBox(
-          height: 40,
-        ),
         CompanyTile(
-          icon: 'assets/images/HomePage/arpicon.png', // Путь к вашему локальному файлу иконки в формате PNG
+          icon: 'assets/images/HomePage/arpicon.png',
           title: 'Arpicon',
           onTap: () {
-            // Обработка нажатия
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const mainInfo()),
+            );
           },
         ),
-        SizedBox(
-          height: 15,
-        ),
+        const Divider(),
         CompanyTile(
           icon: 'assets/images/HomePage/shipyard.png',
           title: 'ЩЕРБИНСКИЙ ЛИФТОСТРОИТЕЛЬНЫЙ ЗАВОД',
-          onTap: () {
-            // Обработка нажатия
-          },
+          onTap: () {},
         ),
-        SizedBox(
-          height: 15,
-        ),
+        const Divider(),
         CompanyTile(
           icon: 'assets/images/HomePage/avialift.png',
           title: 'Avialift',
-          onTap: () {
-            // Обработка нажатия
-          },
+          onTap: () {},
         ),
-        SizedBox(
-          height: 15,
-        ),
+        const Divider(),
         CompanyTile(
           icon: 'assets/images/HomePage/eonessi.png',
           title: 'Eonessi',
-          onTap: () {
-            // Обработка нажатия
-          },
+          onTap: () {},
         ),
       ],
     );
@@ -241,20 +291,32 @@ class CompanyTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Image.asset(
-            icon,
-            width: 50,
-            height: 50,
-        ), // Использование Image.asset для PNG/JPG иконок
-        title: Text(title),
-        trailing: IconButton(
-          icon: const Icon(
-            IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-            color: Color(0xff0560FA),
-          ),
-          onPressed: onTap,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Image.asset(
+              icon,
+              width: 50,
+              height: 50,
+            ),
+            const SizedBox(width: 15),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xff0560FA),
+            ),
+          ],
         ),
       ),
     );
@@ -267,266 +329,60 @@ class Page_3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            ServicesMontage(),
-            SizedBox(height: 10),
-            ServicesTechnician(),
-            SizedBox(height: 10),
-            ServicesProgrammer(),
-            SizedBox(height: 10),
-            ServicesEngineer(),
-            SizedBox(height: 10),
-            ServicesMeneger() // Assuming this is the correct name
-          ],
+      body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 16),
+        children: const [
+          ServiceCard(title: 'Монтажник', route: '/AvailableVacation'),
+          SizedBox(height: 10),
+          ServiceCard(
+              title: 'Техник по обслуживанию', route: '/AvailableVacation'),
+          SizedBox(height: 10),
+          ServiceCard(
+              title: 'Программист оборудования', route: '/AvailableVacation'),
+          SizedBox(height: 10),
+          ServiceCard(
+              title: 'Инженер-конструктор', route: '/AvailableVacation'),
+          SizedBox(height: 10),
+          ServiceCard(
+              title: 'Менеджер по продукции', route: '/AvailableVacation'),
+        ],
+      ),
+    );
+  }
+}
+
+class ServiceCard extends StatelessWidget {
+  final String title;
+  final String route;
+
+  const ServiceCard({super.key, required this.title, required this.route});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0, // Установка elevation в 0 убирает тень
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(fontSize: 18, color: Colors.black),
         ),
-      ),
-    );
-  }
-}
-
-class ServicesMontage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/AvailableVacation');
-      },
-      child: Container(
-        height: 50,
-        width: 362,
-        margin: EdgeInsets.only(bottom: 8),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: Offset(0, 3),
-            ),
-          ],
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          color: Color(0xff0560FA),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                'Монтажник',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Icon(
-                IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-                color: Color(0xff0560FA),
-              ),
-            ),
-          ],
-        ),
+        onTap: () => Navigator.pushNamed(context, route),
       ),
     );
   }
 }
-
-class ServicesTechnician extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 362,
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Техник по обслуживания',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Color(0xff0560FA),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ServicesProgrammer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 362,
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Программист оборудования',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Color(0xff0560FA),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ServicesEngineer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 362,
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Инженер-конструктор',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Color(0xff0560FA),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ServicesMeneger extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 362,
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Менеджер по продукции',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              IconData(0xe09c, fontFamily: 'MaterialIcons', matchTextDirection: true),
-              color: Color(0xff0560FA),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
 
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(debugShowCheckedModeBanner: false, home: NavigationExample());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false, home: NavigationExample());
   }
 }
 
@@ -555,7 +411,8 @@ class _NavigationExampleState extends State<NavigationExample> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [ // Экран Главное
+    final List<Widget> _pages = [
+      // Экран Главное
       const Page_2(), // Экран Вакансий
       const Page_3(), // Услуги
       const Page_1(), // Экран Профиль
@@ -564,7 +421,8 @@ class _NavigationExampleState extends State<NavigationExample> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          getTitle(currentPageIndex), // Здесь вызываем функцию для установки заголовка
+          getTitle(currentPageIndex),
+          // Здесь вызываем функцию для установки заголовка
           style: const TextStyle(
             color: primaryColor,
           ),
@@ -607,6 +465,3 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 }
-
-
-

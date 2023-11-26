@@ -76,7 +76,7 @@ class _Register extends State<Register> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(4))
                         ),
-                        hintText: 'Введите ваше полное имя?',
+                        hintText: 'Введите ваше полное имя',
                         labelText: 'Ваше имя'
                     ),
                     inputFormatters: [
@@ -203,13 +203,13 @@ class _Register extends State<Register> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'У вас уже есть аккаунт?      ',
+                        'У вас уже есть аккаунт? ',
                         style: GoogleFonts.roboto(color: grayColorDark),
                       ),
                       GestureDetector(

@@ -68,11 +68,18 @@ class _OnBoarding extends State<OnBoarding> {
                               color: grayColorDark,
                               fontSize: 14,
                             )),
-                        Text('Войти',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login_page');
+                          },
+                          child: Text(
+                            'Войти',
                             style: GoogleFonts.roboto(
                               color: primaryColor,
                               fontSize: 14,
-                            )),
+                            ),
+                          ),
+                        ),
                       ],
                     )
                   ],
@@ -117,7 +124,7 @@ class _OnBoarding extends State<OnBoarding> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),
-                      child: const Text('Следующая'),
+                      child: const Text('Дальше'),
                     )
                   ],
                 ),
